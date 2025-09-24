@@ -23,7 +23,7 @@ jobs:
       - name: Build Docker image
         run: |
           REPO=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
-          IMAGE=ghcr.io/${{ github.repository }}:sha-${{ github.sha }}
+          IMAGE=ghcr.io/$REPO:sha-${{ github.sha }}
           docker build -t $IMAGE .
           echo "IMAGE=$IMAGE" >> $GITHUB_ENV
 
